@@ -6,7 +6,7 @@ Authors@R: person("Benjamin", "Williams", email = "ben.williams@noaa.gov",
   role = c("aut", "cre"))
 Maintainer: The package maintainer <ben.williams@noaa.gov>
 Description: This package provides a folder structure and SQL queries for accessing the AKFIN and AFSC databases in support of fishery stock assessments. 
-Additionally, archived data are held/provided to maintain consistency across assessments/assessment authors.
+    Additionally, archived data are held/provided to maintain consistency across assessments/assessment authors.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
