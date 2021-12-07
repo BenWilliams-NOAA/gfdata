@@ -14,8 +14,10 @@ Imports:
     DBI,
     dplyr,
     here,
+    lifecycle,
     magrittr,
     odbc,
     vroom
 RoxygenNote: 7.1.2
 URL: https://benwilliams-noaa.github.io/gfdata
+Roxygen: list(markdown = TRUE)
