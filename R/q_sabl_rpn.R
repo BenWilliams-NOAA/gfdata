@@ -1,0 +1,23 @@
+
+#' longline survey rpn/rpw data query
+#'
+#' @param year assessment year
+#' @param save save the file in designated folder if false will load it to global env
+#'
+#' @return
+#' @export
+#'
+#' @examples
+q_sabl_rpn <- function(year, save = TRUE){
+
+  files <- grep(paste0("_rpn"),
+               list.files(system.file("sql", package = "gfdata")), value=TRUE)
+
+  .rpn = sql_read(files[1])
+
+  if(isTRUE(save)){
+    vroom::vroom_write(here::here(year, "data", "raw", "sabl_rpn_data.csv"))
+  } else {
+    .rpn
+  }
+}

@@ -1,0 +1,32 @@
+SELECT year,
+  country,
+  vessel_number,
+  station_number,
+  species_code,
+  common_name,
+  stratum_description,
+  geographic_area_name,
+  council_sablefish_mgmt_area,
+  sex,
+  length,
+  frequency,
+  start_latitude,
+  start_hemi_ns,
+  start_longitude,
+  start_hemi_ew,
+  end_latitude,
+  end_hemi_ns,
+  end_longitude,
+  end_hemi_ew,
+  cruise_station_id,
+  haul_date,
+  exploitable,
+  nmfs_area_code,
+  geographic_area_code,
+  station_type_description,
+  akfin_load_date,
+  stratum
+FROM AFSC.length_summary_view
+WHERE species_code
+  -- insert species
+AND country != 'Japan'
