@@ -1,12 +1,12 @@
 Package: gfdata
 Type: Package
-Title: A suite of data queries for accessing the AKFIN and AFSC database in support of fishery stock assessments.
+Title: Data queries for accessing the AKFIN and AFSC databases.
 Version: 0.1.0
 Authors@R: person("Benjamin", "Williams", email = "ben.williams@noaa.gov",
   role = c("aut", "cre"))
 Maintainer: The package maintainer <ben.williams@noaa.gov>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package provides a folder structure and SQL queries for accessing the AKFIN and AFSC databases in support of fishery stock assessments. 
+Additionally, archived data are held/provided to maintain consistency across assessments/assessment authors.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
