@@ -17,10 +17,11 @@ knitr::opts_chunk$set(
 
 The goal of `gfdata` is to create a clear workflow for pulling and cleaning data for fishery stock assessments based upon the ADMB rockfish assessment framework. 
 It utilizes a "project oriented workflow" via RStudio (base R is ok, though you must use `here::here()`). 
-You must be able to have a connection to the AFSC & AKFIN (Answers) data servers (e.g., VPN if offsite), and have usernames/passwords setup.
+You must be able to have a connection to the AFSC & AKFIN (Answers) data servers (e.g., VPN if offsite), and have usernames/passwords setup. 
+This workflow is designed to work well with the [groundfishr](https://github.com/BenWilliams-NOAA/groundfishr)` package. 
 
 ## Installation
-The `groundfishr` package can be installed from [github](https://github.com/BenWilliams-NOAA/gfdata) with:
+The `gfdata` package can be installed from [github](https://github.com/BenWilliams-NOAA/gfdata) with:
 ```{r}
 # install.packages("devtools")
 devtools::install_github("BenWilliams-NOAA/gfdata")
