@@ -13,7 +13,7 @@
 #' \dontrun{
 #' sablefish(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd)
 #' }
-sablefish <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd){
+sablefish <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, whale = FALSE){
 
   # globals ----
   species = "SABL"
@@ -52,6 +52,7 @@ sablefish <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd){
   q_fish_obs(year, fishery = "fsh1", norpac_species = norpac_species, area = area, akfin = akfin)
 
   # whale depredation ----
+  if(!isFALSE(whale)){
   .wd = sql_read("sabl_whale.sql")
 
   sql_run(akfin, .wd) %>%
@@ -66,6 +67,7 @@ sablefish <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd){
     dplyr::rename_all(tolower) %>%
     write.csv(here::here(year, "data", "raw", "vessels.csv"),
               row.names = FALSE)
+  }
 
   DBI::dbDisconnect(akfin)
 

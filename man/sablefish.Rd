@@ -4,7 +4,7 @@
 \alias{sablefish}
 \title{raw data query for sablefish in the GOA and BSAI}
 \usage{
-sablefish(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd)
+sablefish(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, whale = FALSE)
 }
 \arguments{
 \item{year}{assessment year}
