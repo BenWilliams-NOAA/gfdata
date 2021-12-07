@@ -1,4 +1,4 @@
 url: https://benwilliams-noaa.github.io/gfdata
 template:
   bootstrap: 5
-
+  bootswatch: cerulean
