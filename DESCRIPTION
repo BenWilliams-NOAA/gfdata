@@ -21,3 +21,7 @@ Imports:
 RoxygenNote: 7.1.2
 URL: https://benwilliams-noaa.github.io/gfdata
 Roxygen: list(markdown = TRUE)
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr

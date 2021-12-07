@@ -1,0 +1,179 @@
+---
+title: "setup"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{setup}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The goal of `gfdata` is to create a clear workflow for pulling and cleaning data for fishery stock assessments based upon the ADMB rockfish assessment framework. 
+It utilizes a "project oriented workflow" via RStudio (base R is ok, though you must use `here::here()`). 
+You must be able to have a connection to the AFSC & AKFIN (Answers) data servers (e.g., VPN if offsite), and have usernames/passwords setup.
+
+## Installation
+The `groundfishr` package can be installed from [github](https://github.com/BenWilliams-NOAA/gfdata) with:
+```{r}
+# install.packages("devtools")
+devtools::install_github("BenWilliams-NOAA/gfdata")
+```
+
+```{r setup}
+library(gfdata)
+```
+
+A consistent directory format is probably the most important aspect of this package. 
+The first function creates a number of directories within your R project folder. 
+The setup is organized by year within a folder. 
+The `setup()` function creates the following folders and files:
+
+```{r}
+# setup folders -----
+
+setup(2020)
+
+```
+```
+project
+|__2020
+    |__data
+        |__models
+        |    |__ageage
+        |    |     AGEAGE.tpl
+        |    |__allometric
+        |    |     allometric.tpl
+        |    |__length_sd
+        |    |     lengthSD.tpl
+        |    |__VBL
+        |    |      VBL.tpl
+        |    |__wVBL
+        |    |      wVBL.tpl
+        |    |      lvb.ctl
+        |
+        |__output
+        |__raw
+        |__SARA
+        |__user_input
+
+```
+
+This can then be updated for each year. 
+
+```{r}
+# setup folders -----
+
+setup(2021)
+
+```
+
+Which would create a duplication of the folders for the given year
+
+```
+project
+|__2020
+|   |__data
+|       |__models
+|       |    |__ageage
+|       |    |     AGEAGE.tpl
+|       |    |__allometric
+|       |    |     allometric.tpl
+|       |    |__length_sd
+|       |    |     lengthSD.tpl
+|       |    |__VBL
+|       |    |      VBL.tpl
+|       |    |__wVBL
+|       |    |      wVBL.tpl
+|       |    |      lvb.ctl
+|       |
+|       |__output
+|       |__raw
+|       |__SARA
+|       |__user_input
+|__2021
+    |__data
+        |__models
+        |    |__ageage
+        |    |     AGEAGE.tpl
+        |    |__allometric
+        |    |     allometric.tpl
+        |    |__length_sd
+        |    |     lengthSD.tpl
+        |    |__VBL
+        |    |      VBL.tpl
+        |    |__wVBL
+        |    |      wVBL.tpl
+        |    |      lvb.ctl
+        |
+        |__output
+        |__raw
+        |__SARA
+        |__user_input        
+
+```
+
+The SSC accepted model can then be added from the last assessment as the current year's "base model".
+
+```{r}
+accepted_model(base_year = 2020, base_model = "m18.2b", year = 2021)
+```
+
+This creates a duplication of the folders for the current year
+
+```
+project
+|__2020
+    |__data
+    |__base    # last accepted model
+    |__m18.2a  # model variant a
+    |__m18.2b  # model variant b
+|__2021
+    |__data
+    |__base   # dupication of m18.2b
+        |__ all model files
+
+```
+
+Note that if you are fortunate to have a stock that has years with partial assessments the `setup()` function has a switch (`off_yr`). This switch changes the folders/files that are loaded for that year. It provides the `raw` folder for updates to catch data (or design-based survey estimates), an `output` folder for cleaned up catch data, a `SARA` folder for the annual reporting of these data, and the `user_input` folder for storing updates to VAST, etc. that may not be used in the assessment but might make there way into the SAFE. 
+
+```{r}
+# setup folders -----
+
+setup(2021, off_yr = TRUE)
+
+```
+
+```
+project
+|__2020
+|   |__data
+|       |__models
+|       |    |__ageage
+|       |    |     AGEAGE.tpl
+|       |    |__allometric
+|       |    |     allometric.tpl
+|       |    |__length_sd
+|       |    |     lengthSD.tpl
+|       |    |__VBL
+|       |    |      VBL.tpl
+|       |    |__wVBL
+|       |    |      wVBL.tpl
+|       |    |      lvb.ctl
+|       |
+|       |__output
+|       |__raw
+|       |__SARA
+|       |__user_input
+|__2021
+    |__data
+        |__output
+        |__raw
+        |__SARA
+        |__user_input
+```
