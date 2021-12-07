@@ -13,11 +13,13 @@ q_sabl_rpn <- function(year, save = TRUE){
   files <- grep(paste0("_rpn"),
                list.files(system.file("sql", package = "gfdata")), value=TRUE)
 
-  .rpn = sql_read(files[1])
+  .rpn = sql_read(files[3])
+
 
   if(isTRUE(save)){
-    vroom::vroom_write(here::here(year, "data", "raw", "sabl_rpn_data.csv"))
+    sql_run(akfin, .rpn) %>%
+      vroom::vroom_write(here::here(year, "data", "raw", "sabl_rpn_data.csv"))
   } else {
-    .rpn
+    sql_run(akfin, .rpn)
   }
 }
