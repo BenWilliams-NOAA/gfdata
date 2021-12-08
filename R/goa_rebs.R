@@ -32,6 +32,7 @@ goa_rebs <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = 
 
       DBI::dbDisconnect(akfin)
 
+      #establish afsc connection
       afsc = DBI::dbConnect(odbc::odbc(), "afsc", UID = afsc_user, PWD = afsc_pwd)
 
       q_ts_biomass(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2, afsc_species3), afsc = afsc)
@@ -53,7 +54,7 @@ goa_rebs <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = 
 
   DBI::dbDisconnect(akfin)
 
-  #establish afsc connection ----
+  #establish afsc connection
   afsc = DBI::dbConnect(odbc::odbc(), "afsc",
                         UID = afsc_user, PWD = afsc_pwd)
 
