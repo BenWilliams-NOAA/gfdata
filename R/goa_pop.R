@@ -7,6 +7,7 @@
 #' @param akfin_pwd user password
 #' @param afsc_user user name
 #' @param afsc_pwd user password
+#' @param off_yr is this is a partial assessment change to TRUE, otherwise leave NULL
 #'
 #' @return
 #' @export goa_pop
@@ -15,7 +16,7 @@
 #' \dontrun{
 #' goa_pop(year = 2020, akfin_user, akfin_pwd, afsc_user, afsc_pwd)
 #'}
-goa_pop <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd){
+goa_pop <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = NULL){
 
   # globals ----
   species = "POPA"
