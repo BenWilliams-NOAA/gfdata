@@ -1,5 +1,6 @@
 #' raw data query for GOA dusky rockfish
 #'
+#' The catch if dusky rockfish is a combination of catch of dusky rockfish and pelagic rockfish (prior to 2012).
 #' @param year assessment year
 #' @param akfin_user user name
 #' @param akfin_pwd user password

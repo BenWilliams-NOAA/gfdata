@@ -18,7 +18,7 @@ General naming conventions that are held through this package (and the `groundfi
 
 ## Functions 
 
-Fisheries are identified with `fsh` followed by a number - fsh1, fsh2.  
+Fisheries are identified with `fsh` followed by a number - `fsh1`, `fsh2.`  
 Trawl survey functions start with `ts_`, longline survey functions start with `lls`.  
 A function that starts with `q_` is a database query that will connect to either the AKFIN or AFSC database for raw data. 
 Since queries may be specific for each species or region, stand alone query "wrapper functions" are provided. 
