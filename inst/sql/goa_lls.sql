@@ -1,13 +1,8 @@
-SELECT year,
-  survey,
-  area_id,
-  area,
-  species_code,
-  common_name,
-  cpue,
-  rpn,
-  rpw,
-  akfin_load_date
-FROM afsc.web_areas
+SELECT *
+FROM afsc.lls_area_rpn_all_strata
 WHERE species_code
   -- insert species
+AND country = 'United States'
+AND exploitable = 1
+AND council_sablefish_management_area_id >= 3
+AND year > 1992
