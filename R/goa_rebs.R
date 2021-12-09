@@ -48,9 +48,9 @@ goa_rebs <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = 
                      area = area, akfin = akfin)
   q_fish_length_comp(year, fishery = "fsh", norpac_species = c(norpac_species, norpac_species2),
                         area = area, akfin = akfin)
-  # q_lls_biomass(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
+  q_lls_biomass(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
 
-  # q_lls_length_comp(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
+  q_lls_length_comp(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
 
   DBI::dbDisconnect(akfin)
 
@@ -71,7 +71,7 @@ goa_rebs <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = 
     }
 
   gfdata::goa_rebs_catch_1977_2004 %>%
-    vroom::vroom_write(here::here(year, "data", "user_input", "goa_rebs_catch_1977_2004.csv"))
+    vroom::vroom_write(here::here(year, "data", "user_input", "goa_rebs_catch_1977_2004.csv"), delim = ",")
 
   q_date(year)
 
