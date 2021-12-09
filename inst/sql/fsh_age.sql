@@ -7,7 +7,7 @@ SELECT year,
   specimen_type,
   performance
 FROM norpac.debriefed_age_mv
-WHERE area
+WHERE fmp_area
         -- insert region
 AND species
         -- insert species
