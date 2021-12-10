@@ -12,7 +12,7 @@
 #' @examples
 q_lls_biomass <- function (year, area = "goa", afsc_species, akfin, save = TRUE){
 
-  area = toupper(area)
+  area = tolower(area)
 
   files <- grep(paste0(area,"_lls"),
                 list.files(system.file("sql", package = "gfdata")), value=TRUE)
@@ -21,6 +21,7 @@ q_lls_biomass <- function (year, area = "goa", afsc_species, akfin, save = TRUE)
 
   if(length(afsc_species) == 1){
     .bio = sql_filter(x = afsc_species, sql_code = .bio, flag = "-- insert species")
+
   } else {
     .bio = sql_filter(sql_precode = "IN", x = afsc_species,
                       sql_code = .bio, flag = "-- insert species")
@@ -28,8 +29,7 @@ q_lls_biomass <- function (year, area = "goa", afsc_species, akfin, save = TRUE)
 
   if(isTRUE(save)){
     sql_run(akfin, .bio) %>%
-      write.csv(here::here(year, "data", "raw", paste0(area, "_lls_biomass_data.csv")),
-                row.names = FALSE)
+      vroom::vroom_write(here::here(year, "data", "raw", paste0(area, "_lls_biomass_data.csv")), delim = ",")
   } else {
     sql_run(akfin, .bio)
   }

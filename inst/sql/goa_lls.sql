@@ -4,5 +4,4 @@ WHERE species_code
   -- insert species
 AND country = 'United States'
 AND council_sablefish_management_area_id >= 3
-AND year
- -- insert year
+

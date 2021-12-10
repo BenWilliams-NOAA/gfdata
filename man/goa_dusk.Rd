@@ -23,7 +23,7 @@ goa_dusk(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = NULL)
 
 }
 \description{
-raw data query for GOA dusky rockfish
+The catch if dusky rockfish is a combination of catch of dusky rockfish and pelagic rockfish (prior to 2012).
 }
 \examples{
 \dontrun{

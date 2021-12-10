@@ -4,7 +4,7 @@
 \alias{goa_pop}
 \title{raw data query for GOA POP}
 \usage{
-goa_pop(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd)
+goa_pop(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = NULL)
 }
 \arguments{
 \item{year}{assessment year}
@@ -16,6 +16,8 @@ goa_pop(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd)
 \item{afsc_user}{user name}
 
 \item{afsc_pwd}{user password}
+
+\item{off_yr}{is this is a partial assessment change to TRUE, otherwise leave NULL}
 }
 \value{
 
