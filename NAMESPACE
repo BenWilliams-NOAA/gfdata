@@ -3,6 +3,7 @@
 export("%>%")
 export(accepted_model)
 export(collapse_filters)
+export(goa_atf)
 export(goa_dusk)
 export(goa_nork)
 export(goa_pop)
