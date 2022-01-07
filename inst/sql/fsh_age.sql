@@ -1,5 +1,6 @@
 SELECT year,
   fmp_area,
+  fmp_gear,
   species,
   length,
   weight,
