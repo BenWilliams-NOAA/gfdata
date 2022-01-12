@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   naming-conventions: naming-conventions.html
   setup: setup.html
-last_built: 2022-01-07T03:07Z
+last_built: 2022-01-12T18:57Z
 urls:
   reference: https://benwilliams-noaa.github.io/gfdata/reference
   article: https://benwilliams-noaa.github.io/gfdata/articles
