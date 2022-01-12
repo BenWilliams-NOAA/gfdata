@@ -19,7 +19,7 @@ goa_dusk <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = 
 
   # globals ----
   species = "DUSK"
-  area = "GOA"
+  area = "goa"
   afsc_species1 =  30150
   afsc_species2 = 30152
   norpac_species = 330
@@ -40,9 +40,8 @@ if(!is.null(off_yr)){
   .d = sql_filter(sql_precode = "IN", x = c("PEL7", "PELS"), sql_code = .d, flag = "-- insert species")
 
   sql_run(akfin, .c) %>%
-    bind_rows(sql_run(akfin, .d)) %>%
-    write.csv(here::here(year, "data", "raw", "fsh_catch_data.csv"),
-              row.names = FALSE)
+    dplyr::bind_rows(sql_run(akfin, .d)) %>%
+    vroom::vroom_write(here::here(year, "data", "raw", "fsh_catch_data.csv"))
   q_fish_obs(year = year, norpac_species = norpac_species, area = area, akfin = akfin)
 
   DBI::dbDisconnect(akfin)
@@ -50,7 +49,7 @@ if(!is.null(off_yr)){
   afsc = DBI::dbConnect(odbc::odbc(), "afsc",
                       UID = afsc_user, PWD = afsc_pwd)
 
-  q_ts_biomass(year, area = area, afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
+  q_ts_biomass(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
 
   DBI::dbDisconnect(afsc)
 
@@ -70,9 +69,8 @@ if(!is.null(off_yr)){
   .d = sql_filter(sql_precode = "IN", x = c("PEL7", "PELS"), sql_code = .d, flag = "-- insert species")
 
   sql_run(akfin, .c) %>%
-    bind_rows(sql_run(akfin, .d)) %>%
-    write.csv(here::here(year, "data", "raw", "fsh_catch_data.csv"),
-              row.names = FALSE)
+    dplyr::bind_rows(sql_run(akfin, .d)) %>%
+    vroom::vroom_write(here::here(year, "data", "raw", "fsh_catch_data.csv"))
 
   q_fish_obs(year, fishery = "fsh", norpac_species = norpac_species, area, akfin)
   q_fish_age_comp(year, fishery = "fsh", norpac_species = norpac_species, area = area, akfin = akfin)
@@ -84,10 +82,10 @@ if(!is.null(off_yr)){
   afsc = DBI::dbConnect(odbc::odbc(), "afsc",
                         UID = afsc_user, PWD = afsc_pwd)
 
-  q_ts_biomass(year, area = area, afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
-  q_ts_age_comp(year, area = area, afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
-  q_ts_length_comp(year, area = area, afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
-  q_ts_saa(year, area = area, afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
+  q_ts_biomass(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
+  q_ts_age_comp(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
+  q_ts_length_comp(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
+  q_ts_saa(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
 
   DBI::dbDisconnect(afsc)
 
