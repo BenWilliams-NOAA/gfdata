@@ -61,7 +61,7 @@
 #' \item{year}{year of catch}
 #' \item{catch}{weight of catch in 1,000 t}
 #' }
-"goa_dusk_catch_1977_1990"
+"goa_atf_catch_1961_1990"
 
 #' GOA dusky rockfish historical catch data
 #'

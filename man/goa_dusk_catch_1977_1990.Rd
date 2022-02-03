@@ -3,14 +3,8 @@
 \docType{data}
 \name{goa_dusk_catch_1977_1990}
 \alias{goa_dusk_catch_1977_1990}
-\title{GOA arrowtooth flounder historical catch data}
+\title{GOA dusky rockfish historical catch data}
 \format{
-A data frame with 30 observations and 2 variables:
-\describe{
-\item{year}{year of catch}
-\item{catch}{weight of catch in 1,000 t}
-}
-
 A data frame with 14 observations and 2 variables:
 \describe{
 \item{year}{year of catch}
@@ -19,12 +13,8 @@ A data frame with 14 observations and 2 variables:
 }
 \usage{
 goa_dusk_catch_1977_1990
-
-goa_dusk_catch_1977_1990
 }
 \description{
-A dataset containing trawl gear catch by year for 1961-1990
-
 A dataset containing trawl gear catch by year for 1977-1990
 }
 \keyword{datasets}
