@@ -52,11 +52,22 @@
 #' }
 "sabl_vessel_lengths"
 
+#' GOA arrowtooth flounder historical catch data
+#'
+#' A dataset containing trawl gear catch by year for 1961-1990
+#'
+#' @format A data frame with 30 observations and 2 variables:
+#' \describe{
+#' \item{year}{year of catch}
+#' \item{catch}{weight of catch in 1,000 t}
+#' }
+"goa_dusk_catch_1977_1990"
+
 #' GOA dusky rockfish historical catch data
 #'
-#' A dataset containing trawl gear catch by year for 1961-1992
+#' A dataset containing trawl gear catch by year for 1977-1990
 #'
-#' @format A data frame with 32 observations and 2 variables:
+#' @format A data frame with 14 observations and 2 variables:
 #' \describe{
 #' \item{year}{year of catch}
 #' \item{catch}{weight of catch in 1,000 t}
