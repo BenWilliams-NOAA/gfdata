@@ -1,4 +1,4 @@
-#' raw data query for GOA RE/BS
+#' raw data query for GOA northern rockfish
 #'
 #' @param year assessment year
 #' @param akfin_user user name
