@@ -4,7 +4,16 @@
 \alias{q_ts_biomass}
 \title{trawl survey biomass data query}
 \usage{
-q_ts_biomass(year, area = "goa", afsc_species, afsc, save = TRUE)
+q_ts_biomass(
+  year,
+  area = "goa",
+  afsc_species,
+  shelf_slope = "slope",
+  depth = TRUE,
+  stratum = NULL,
+  akfin,
+  save = TRUE
+)
 }
 \arguments{
 \item{year}{assessment year}
@@ -13,9 +22,15 @@ q_ts_biomass(year, area = "goa", afsc_species, afsc, save = TRUE)
 
 \item{afsc_species}{afsc species code(s)}
 
-\item{afsc}{the database to query}
+\item{shelf_slope}{if the area is the Bering Sea this default designated "shelf" alternate is "slope"}
 
-\item{save}{save the file in designated folder}
+\item{depth}{defaut is NULL, otherwise queries data by depth}
+
+\item{stratum}{defaut is NULL, otherwise queries data by stratum}
+
+\item{akfin}{the database to query}
+
+\item{save}{save the file in designated folder, if FALSE outputs to global environment}
 }
 \value{
 

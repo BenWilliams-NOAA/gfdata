@@ -4,7 +4,7 @@
 \alias{setup}
 \title{Setup folder structure}
 \usage{
-setup(year, off_yr = NULL)
+setup(year, off_yr = NULL, tier = NULL)
 }
 \arguments{
 \item{off_yr}{if this is an off-year assessment change to TRUE

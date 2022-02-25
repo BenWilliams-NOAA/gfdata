@@ -3,26 +3,53 @@
 #' @param year assessment year
 #' @param area default is "goa"
 #' @param afsc_species afsc species code(s)
-#' @param afsc  the database to query
-#' @param save save the file in designated folder
+#' @param shelf_slope if the area is the Bering Sea this default designated "shelf" alternate is "slope"
+#' @param depth defaut is NULL, otherwise queries data by depth
+#' @param stratum defaut is NULL, otherwise queries data by stratum
+#' @param akfin  the database to query
+#' @param save save the file in designated folder, if FALSE outputs to global environment
 #'
 #' @return
 #' @export
 #'
 #' @examples
-q_ts_biomass <- function (year, area = "goa", afsc_species, afsc, save = TRUE){
+q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "slope", depth = TRUE, stratum = NULL, akfin, save = TRUE){
+  if(area == "bs" & shelf_slope == "shelf"){
+    message("you are querying the Bering Sea slope, change shelf_slope = 'slope' to get slope results")
+  }
 
-  files <- grep("_ts",
-                list.files(system.file("sql", package = "gfdata")), value=TRUE)
+  if(is.null(depth) & is.null(stratum)){
+    files = grep('tot_ts',
+                 list.files(system.file("sql", package = "gfdata")), value=TRUE)
+    id1 = "_tot_"
 
-  .bio = sql_read(files[1])
+  } else if(!is.null(depth) & is.null(stratum)){
+    files = grep('depth_ts',
+                 list.files(system.file("sql", package = "gfdata")), value=TRUE)
+    id1 = "_depth_"
 
-  if(length(afsc_species) == 1){
-    if(afsc_species == 20510){
-    .bio = sql_read(files[9])
   } else {
-    .bio = sql_read(files[1])
-  }}
+    files = grep('stratum_ts',
+                 list.files(system.file("sql", package = "gfdata")), value=TRUE)
+    id1 = "_stratum_"
+  }
+
+  # FUTURE - can add BS by depth or strata switches
+  if(area=="bs"){
+    files = grep("bs", files, value=TRUE)
+    if(shelf_slope=="shelf"){
+      file = grep("shelf", files, value=TRUE)
+      id = "bsshelf"
+    } else {
+      file = grep("slope", files, value=TRUE)
+      id = "bsslope"
+    }
+  } else {
+    file = grep("aigoa", files, value=TRUE)
+    id = area
+  }
+
+  .bio = sql_read(file)
 
 
   if(length(afsc_species) == 1){
@@ -32,10 +59,14 @@ q_ts_biomass <- function (year, area = "goa", afsc_species, afsc, save = TRUE){
                       sql_code = .bio, flag = "-- insert species")
   }
 
+  if(area != "bs"){
+    .bio = sql_filter(x = area, sql_code = .bio, flag = "-- insert area")
+  }
+
   if(isTRUE(save)){
     sql_run(afsc, .bio) %>%
-      write.csv(here::here(year, "data", "raw", paste0(area, "_ts_biomass_data.csv")),
-                row.names = FALSE)
+      vroom::vroom_write(here::here(year, "data", "raw", paste0(id, id1, "ts_biomass_data.csv")),
+                         delim = ",")
   } else {
     sql_run(afsc, .bio)
   }
