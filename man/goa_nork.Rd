@@ -2,7 +2,7 @@
 % Please edit documentation in R/goa_nork.R
 \name{goa_nork}
 \alias{goa_nork}
-\title{raw data query for GOA RE/BS}
+\title{raw data query for GOA northern rockfish}
 \usage{
 goa_nork(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = NULL)
 }
@@ -23,7 +23,7 @@ goa_nork(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = NULL)
 
 }
 \description{
-raw data query for GOA RE/BS
+raw data query for GOA northern rockfish
 }
 \examples{
 \dontrun{
