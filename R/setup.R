@@ -12,7 +12,7 @@
 #' \dontrun{
 #' setup(2020)
 #'}
-setup <- function(year, off_yr = NULL){
+setup <- function(year, off_yr = NULL, tier = NULL){
 
   if(!is.null(off_yr)){
     dirs = c("raw", "user_input", "output", "sara")
