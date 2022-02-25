@@ -13,6 +13,6 @@ SELECT survey,
   max_biomass,
   total_pop,
   pop_var
-FROM goa.biomass_total
+FROM afsc.race_biomasstotalaigoa
 WHERE species_code
   -- insert species
