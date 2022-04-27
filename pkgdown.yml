@@ -1,10 +1,10 @@
 pandoc: 2.7.3
-pkgdown: 2.0.2
+pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   naming-conventions: naming-conventions.html
   setup: setup.html
-last_built: 2022-02-25T02:16Z
+last_built: 2022-04-27T02:14Z
 urls:
   reference: https://benwilliams-noaa.github.io/gfdata/reference
   article: https://benwilliams-noaa.github.io/gfdata/articles
