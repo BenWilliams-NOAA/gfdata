@@ -26,7 +26,7 @@ sablefish <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, whale = 
                           UID = akfin_user, PWD = akfin_pwd)
 
   # catch data ----
-  .c = sql_read("fsh1_catch.sql")
+  .c = sql_read("fsh_catch.sql")
   .c = sql_filter(sql_precode = "<=", year, sql_code = .c, flag = "-- insert year")
   .c = sql_filter(sql_precode = "IN", area, sql_code = .c, flag = "-- insert region")
   .c = sql_filter(x = species, sql_code = .c, flag = "-- insert species")
