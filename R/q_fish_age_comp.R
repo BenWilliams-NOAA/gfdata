@@ -24,39 +24,23 @@ files <- grep(paste0(fishery,"_age"),
   .age = sql_read(files[1])
   .age = sql_filter(x = area, sql_code = .age, flag = "-- insert region")
 
-  .age_h = sql_read(files[2])
-  .age_h = sql_filter(x = area, sql_code = .age_h, flag = "-- insert region")
-
-  .age_p = sql_read(files[3])
-  .age_p = sql_filter(x = area, sql_code = .age_p, flag = "-- insert region")
-
 
 if(length(norpac_species) == 1){
 
     .age = sql_filter(x = norpac_species, sql_code = .age, flag = "-- insert species")
-    .age_h = sql_filter(x = norpac_species, sql_code = .age_h, flag = "-- insert species")
-    .age_p = sql_filter(x = norpac_species, sql_code = .age_p, flag = "-- insert species")
 
   } else {
 
     .age = sql_filter(sql_precode = "IN", x = norpac_species,
                       sql_code = .age, flag = "-- insert species")
-    .age_h = sql_filter(sql_precode = "IN", x = norpac_species,
-                        sql_code = .age_h, flag = "-- insert species")
-    .age_p = sql_filter(sql_precode = "IN", x = norpac_species,
-                        sql_code = .age_p, flag = "-- insert species")
   }
 
   if(isTRUE(save)){
-  dplyr::bind_cols(sql_run(akfin, .age),
-                   sql_run(akfin, .age_h),
-                   sql_run(akfin, .age_p)) %>%
+  sql_run(akfin, .age) %>%
             write.csv(here::here(year, "data", "raw", paste0(fishery, "_age_comp_data.csv")),
             row.names = FALSE)
   } else {
-    dplyr::bind_cols(sql_run(akfin, .age),
-                     sql_run(akfin, .age_h),
-                     sql_run(akfin, .age_p))
+    sql_run(akfin, .age)
   }
 }
 

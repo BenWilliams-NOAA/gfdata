@@ -39,6 +39,7 @@ q_fish_catch <- function(year, fishery = "fsh", species, area = "goa", akfin, sa
     write.csv(here::here(year, "data", "raw", paste0(fishery, "_catch_data.csv")),
               row.names = FALSE)
   } else {
-    sql_run(akfin, .c)
+    catch <- sql_run(akfin, .c)
   }
 }
+

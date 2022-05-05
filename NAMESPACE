@@ -2,6 +2,7 @@
 
 export("%>%")
 export(accepted_model)
+export(bsai_flathead)
 export(collapse_filters)
 export(goa_atf)
 export(goa_dusk)
