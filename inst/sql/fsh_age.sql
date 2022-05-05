@@ -14,3 +14,5 @@ WHERE fmp_area
         -- insert region
 AND species
         -- insert species
+AND age IS NOT NULL
+AND specimen_type != 3
