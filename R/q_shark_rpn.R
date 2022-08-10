@@ -3,13 +3,14 @@
 #'
 #' @param year assessment year
 #' @param save save the file in designated folder if false will load it to global env
+#' @param akfin akfin server
 #'
 #' @return
 #' @export q_shark_rpn
 #'
 #' @examples
 #' \dontrun(q_sharl_rpn(year, save=FALSE))
-q_shark_rpn <- function(year, save = TRUE){
+q_shark_rpn <- function(year, save, akfin){
 
   files <- grep(paste0("shark_rpn"),
                 list.files(system.file("sql", package = "gfdata")), value=TRUE)
