@@ -4,12 +4,14 @@
 \alias{q_shark_rpn}
 \title{IPHC FISS RPN and CPUE from AKFIN}
 \usage{
-q_shark_rpn(year, save = TRUE)
+q_shark_rpn(year, save, akfin)
 }
 \arguments{
 \item{year}{assessment year}
 
 \item{save}{save the file in designated folder if false will load it to global env}
+
+\item{akfin}{akfin server}
 }
 \description{
 IPHC FISS RPN and CPUE from AKFIN
