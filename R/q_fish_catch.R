@@ -19,16 +19,16 @@ q_fish_catch <- function(year, fishery = "fsh", species, area = "goa", akfin, sa
   # get appropriate age compe query data for a specific fishery
   # e.g., ("fsh1", "fsh2")
 
-  file <- grep(paste0("_catch"),
-               list.files(system.file("sql", package = "gfdata")), value=TRUE)
+  .c = sql_read("fsh_catch.sql")
 
-
-    .c = sql_read(file)
-    .c = sql_filter(sql_precode = "<=", year, sql_code = .c, flag = "-- insert year")
+  .c = sql_filter(sql_precode = "<=", year, sql_code = .c, flag = "-- insert year")
     if(length(area) > 1){
     .c = sql_filter(sql_precode = "IN", x = area, sql_code = .c, flag = "-- insert region")
     } else {
       .c = sql_filter(x = area, sql_code = .c, flag = "-- insert region")
+    }
+    if(length(species) > 1){
+      .c = sql_filter(sql_precode = "IN", x = species, sql_code = .c, flag = "-- insert species")
     }
     .c = sql_filter(x = species, sql_code = .c, flag = "-- insert species")
 

@@ -32,9 +32,6 @@ q_ts_biomass(
 
 \item{save}{save the file in designated folder, if FALSE outputs to global environment}
 }
-\value{
-
-}
 \description{
 trawl survey biomass data query
 }

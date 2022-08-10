@@ -26,12 +26,6 @@ q_fish_length_comp(
 
 \item{save}{save the file in designated folder}
 }
-\value{
-
-}
 \description{
 fishery length comp data query
-}
-\examples{
-
 }

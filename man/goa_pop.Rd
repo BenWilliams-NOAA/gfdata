@@ -19,9 +19,6 @@ goa_pop(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = NULL)
 
 \item{off_yr}{is this is a partial assessment change to TRUE, otherwise leave NULL}
 }
-\value{
-
-}
 \description{
 raw data query for GOA POP
 }

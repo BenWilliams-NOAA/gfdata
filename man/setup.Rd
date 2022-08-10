@@ -10,9 +10,6 @@ setup(year, off_yr = NULL, tier = NULL)
 \item{off_yr}{if this is an off-year assessment change to TRUE
 #'}
 }
-\value{
-
-}
 \description{
 Creates a common folder structure for ADMB assessments
 }

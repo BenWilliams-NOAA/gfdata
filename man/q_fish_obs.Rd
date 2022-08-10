@@ -19,12 +19,6 @@ q_fish_obs(year, fishery = "fsh", norpac_species, area, akfin, save = TRUE)
 
 \item{save}{save the file in designated folder}
 }
-\value{
-
-}
 \description{
 fishery observer data query
-}
-\examples{
-
 }

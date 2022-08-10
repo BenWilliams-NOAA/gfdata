@@ -17,9 +17,6 @@ q_ts_app(year, area = "goa", afsc_species, afsc, save = TRUE)
 
 \item{save}{save the file in designated folder}
 }
-\value{
-
-}
 \description{
 trawl survey apportionment data query
 }

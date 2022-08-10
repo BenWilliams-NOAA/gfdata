@@ -26,12 +26,6 @@ q_fish_age_comp(
 
 \item{save}{save the file in designated folder}
 }
-\value{
-
-}
 \description{
 fishery age comp data query
-}
-\examples{
-
 }

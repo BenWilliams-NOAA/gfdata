@@ -11,9 +11,6 @@ q_sabl_length_comp(year, save = TRUE)
 
 \item{save}{save the file in designated folder if false will load it to global env}
 }
-\value{
-
-}
 \description{
 RPN weighted sablefish length comp data query
 }

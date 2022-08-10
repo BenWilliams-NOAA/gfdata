@@ -17,12 +17,6 @@ q_ts_length_comp(year, area = "goa", afsc_species, afsc, save = TRUE)
 
 \item{save}{save the file in designated folder}
 }
-\value{
-
-}
 \description{
 trawl survey length comp data query
-}
-\examples{
-
 }

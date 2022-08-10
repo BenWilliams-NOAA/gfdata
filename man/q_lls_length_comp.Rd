@@ -17,12 +17,6 @@ q_lls_length_comp(year, area = "goa", afsc_species, akfin, save = TRUE)
 
 \item{save}{save the file in designated folder}
 }
-\value{
-
-}
 \description{
 Longline survey length comp data query
-}
-\examples{
-
 }

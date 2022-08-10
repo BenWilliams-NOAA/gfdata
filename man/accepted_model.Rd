@@ -15,9 +15,6 @@ accepted_model(base_year, base_model, year, folder = NULL)
 
 \item{folder}{if the base model is in a different location than the groundfishr structure is looking for}
 }
-\value{
-
-}
 \description{
 copy of all base model files, also add a "base_model.txt" file that identifies the model used
 }

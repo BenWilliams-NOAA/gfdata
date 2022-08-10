@@ -11,9 +11,6 @@ q_sabl_rpn(year, save = TRUE)
 
 \item{save}{save the file in designated folder if false will load it to global env}
 }
-\value{
-
-}
 \description{
 longline survey rpn/rpw data query
 }

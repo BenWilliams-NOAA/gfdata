@@ -19,9 +19,6 @@ goa_rebs(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = NULL)
 
 \item{off_yr}{if this is an off-year assessment change to TRUE}
 }
-\value{
-
-}
 \description{
 raw data query for GOA RE/BS rockfish
 }

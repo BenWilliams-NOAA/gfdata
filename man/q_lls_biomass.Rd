@@ -9,9 +9,6 @@ q_lls_biomass(year, area = "goa", afsc_species, akfin, save = TRUE)
 \arguments{
 \item{save}{}
 }
-\value{
-
-}
 \description{
 longline survey biomass data query
 }

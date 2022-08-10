@@ -9,9 +9,6 @@ q_date(year)
 \arguments{
 \item{year}{assessment year}
 }
-\value{
-
-}
 \description{
 date of data query
 }

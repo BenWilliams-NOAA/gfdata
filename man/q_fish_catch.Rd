@@ -19,9 +19,6 @@ q_fish_catch(year, fishery = "fsh", species, area = "goa", akfin, save = TRUE)
 
 \item{save}{save the file in designated folder}
 }
-\value{
-
-}
 \description{
 fishery catch data query
 }

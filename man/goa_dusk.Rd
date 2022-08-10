@@ -19,9 +19,6 @@ goa_dusk(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = NULL)
 
 \item{off_yr}{if this is an off-year assessment change to TRUE}
 }
-\value{
-
-}
 \description{
 The catch if dusky rockfish is a combination of catch of dusky rockfish and pelagic rockfish (prior to 2012).
 }

@@ -14,7 +14,7 @@ SELECT
   upperb as max_biomass,
   population as total_pop,
   varpop as pop_var
-FROM afsc.race_biomass_ebsshelf_standard
+FROM afsc.race_biomass_ebss_standard_grp
 WHERE species_code
   -- insert species
 AND

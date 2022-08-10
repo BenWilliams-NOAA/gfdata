@@ -10,7 +10,7 @@
 #' @examples
 q_sabl_rpn <- function(year, save = TRUE){
 
-  files <- grep(paste0("_rpn"),
+  files <- grep(paste0("sabl_rpn"),
                list.files(system.file("sql", package = "gfdata")), value=TRUE)
 
   .rpn = sql_read(files[3])
