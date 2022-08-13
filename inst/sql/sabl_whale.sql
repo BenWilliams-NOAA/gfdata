@@ -1,4 +1,4 @@
-"SELECT
+SELECT
   year,
   haul_join,
   vessel,
