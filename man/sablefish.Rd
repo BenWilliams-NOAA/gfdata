@@ -17,9 +17,6 @@ sablefish(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, whale = FALSE)
 
 \item{afsc_pwd}{user password}
 }
-\value{
-
-}
 \description{
 raw data query for sablefish in the GOA and BSAI
 }
