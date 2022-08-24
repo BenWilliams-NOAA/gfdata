@@ -16,14 +16,14 @@ q_ts_length_comp <- function(year, area = "goa", afsc_species, afsc, save = TRUE
   files <- grep(paste0(area,"_ts_length"),
                 list.files(system.file("sql", package = "gfdata")), value=TRUE)
 
-  if(afsc_species == 20510){
-    # sablefish are different...
-    .one = sql_read(files[1])
-    .two = sql_read(files[3])
-  } else {
+  # if(afsc_species == 20510){
+  #   # sablefish are different...
+  #   .one = sql_read(files[1])
+  #   .two = sql_read(files[3])
+  # } else {
     .one = sql_read(files[2])
     .two = sql_read(files[3])
-  }
+  # }
 
   if(length(afsc_species) == 1){
     .one = sql_filter(x = afsc_species, sql_code = .one, flag = "-- insert species")

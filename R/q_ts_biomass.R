@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "slope", depth = TRUE, stratum = NULL, akfin, save = TRUE){
+q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "slope", depth = NULL, stratum = NULL, akfin, save = TRUE){
   if(area == "bs" & shelf_slope == "shelf"){
     message("you are querying the Bering Sea slope, change shelf_slope = 'slope' to get slope results")
   }
@@ -64,11 +64,11 @@ q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "slope
   }
 
   if(isTRUE(save)){
-    sql_run(afsc, .bio) %>%
+    sql_run(akfin, .bio) %>%
       vroom::vroom_write(here::here(year, "data", "raw", paste0(id, id1, "ts_biomass_data.csv")),
                          delim = ",")
   } else {
-    sql_run(afsc, .bio)
+    sql_run(akfin, .bio)
   }
 }
 

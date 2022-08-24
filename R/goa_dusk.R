@@ -32,11 +32,11 @@ if(!is.null(off_yr)){
   # catch
   .c = .d = sql_read("fsh_catch.sql")
   .c = sql_filter(sql_precode = ">=", 2012, sql_code = .c, flag = "-- insert year")
-  .c = sql_filter(x = area, sql_code = .c, flag = "-- insert region")
+  .c = sql_filter(x = toupper(area), sql_code = .c, flag = "-- insert region")
   .c = sql_filter(x = species, sql_code = .c, flag = "-- insert species")
 
   .d = sql_filter(sql_precode = "<=", 2011, sql_code = .d, flag = "-- insert year")
-  .d = sql_filter(x = area, sql_code = .d, flag = "-- insert region")
+  .d = sql_filter(x = toupper(area), sql_code = .d, flag = "-- insert region")
   .d = sql_filter(sql_precode = "IN", x = c("PEL7", "PELS"), sql_code = .d, flag = "-- insert species")
 
   sql_run(akfin, .c) %>%
@@ -44,14 +44,9 @@ if(!is.null(off_yr)){
     vroom::vroom_write(here::here(year, "data", "raw", "fsh_catch_data.csv"))
   q_fish_obs(year = year, norpac_species = norpac_species, area = area, akfin = akfin)
 
+  q_ts_biomass(year, area = area, afsc_species = c(afsc_species1, afsc_species2), akfin = akfin)
+
   DBI::dbDisconnect(akfin)
-
-  afsc = DBI::dbConnect(odbc::odbc(), "afsc",
-                      UID = afsc_user, PWD = afsc_pwd)
-
-  q_ts_biomass(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
-
-  DBI::dbDisconnect(afsc)
 
   } else{
   # establish akfin connection
@@ -61,11 +56,11 @@ if(!is.null(off_yr)){
   # catch
   .c = .d = sql_read("fsh_catch.sql")
   .c = sql_filter(sql_precode = ">=", 2012, sql_code = .c, flag = "-- insert year")
-  .c = sql_filter(x = area, sql_code = .c, flag = "-- insert region")
+  .c = sql_filter(x = toupper(area), sql_code = .c, flag = "-- insert region")
   .c = sql_filter(x = species, sql_code = .c, flag = "-- insert species")
 
   .d = sql_filter(sql_precode = "<=", 2011, sql_code = .d, flag = "-- insert year")
-  .d = sql_filter(x = area, sql_code = .d, flag = "-- insert region")
+  .d = sql_filter(x = toupper(area), sql_code = .d, flag = "-- insert region")
   .d = sql_filter(sql_precode = "IN", x = c("PEL7", "PELS"), sql_code = .d, flag = "-- insert species")
 
   sql_run(akfin, .c) %>%
@@ -75,6 +70,7 @@ if(!is.null(off_yr)){
   q_fish_obs(year, fishery = "fsh", norpac_species = norpac_species, area, akfin)
   q_fish_age_comp(year, fishery = "fsh", norpac_species = norpac_species, area = area, akfin = akfin)
   q_fish_length_comp(year, fishery = "fsh", norpac_species = norpac_species, area = area, akfin = akfin)
+  q_ts_biomass(year, area = area, afsc_species = c(afsc_species1, afsc_species2), akfin = akfin)
 
   DBI::dbDisconnect(akfin)
 
@@ -82,10 +78,10 @@ if(!is.null(off_yr)){
   afsc = DBI::dbConnect(odbc::odbc(), "afsc",
                         UID = afsc_user, PWD = afsc_pwd)
 
-  q_ts_biomass(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
-  q_ts_age_comp(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
-  q_ts_length_comp(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
-  q_ts_saa(year, area = "goa", afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
+
+  q_ts_age_comp(year, area = area, afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
+  q_ts_length_comp(year, area = area, afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
+  q_ts_saa(year, area = area, afsc_species = c(afsc_species1, afsc_species2), afsc = afsc)
 
   DBI::dbDisconnect(afsc)
 
