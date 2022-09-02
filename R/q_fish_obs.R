@@ -14,6 +14,7 @@
 #'
 q_fish_obs <- function(year, fishery = "fsh", norpac_species, area, akfin, save = TRUE){
 
+  area = toupper(area)
   file <- grep(paste0(fishery,"_obs"),
                list.files(system.file("sql", package = "gfdata")), value=TRUE)
 
@@ -24,7 +25,7 @@ q_fish_obs <- function(year, fishery = "fsh", norpac_species, area, akfin, save 
   if(length(area) == 1){
     .obs = sql_filter(x = area, sql_code = .obs, flag = "-- insert region")
   } else {
-    .obs = sql_filter(sql_precode = "IN", x = area,
+    .obs = sql_filter(sql_precode = "IN", x = toupper(area),
                       sql_code = .obs, flag = "-- insert region")
   }
 

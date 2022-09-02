@@ -30,15 +30,10 @@ goa_rebs <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = 
       q_fish_catch(year, fishery = "fsh", species = species, area = area, akfin = akfin)
       q_fish_obs(year, fishery = "fsh", norpac_species = c(norpac_species, norpac_species2), area, akfin)
       q_lls_biomass(year, area = "goa", afsc_species = afsc_species1, akfin = akfin)
-
+      q_ts_biomass(year, area = "goa",
+                   afsc_species = c(afsc_species2, afsc_species3), akfin = akfin)
       DBI::dbDisconnect(akfin)
 
-      #establish afsc connection
-      afsc = DBI::dbConnect(odbc::odbc(), "afsc", UID = afsc_user, PWD = afsc_pwd)
-
-      q_ts_biomass(year, area = "goa", afsc_species = c(afsc_species2, afsc_species3), afsc = afsc)
-
-      DBI::dbDisconnect(afsc)
 
     } else{
   # establish akfin connection
@@ -52,7 +47,8 @@ goa_rebs <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = 
   q_lls_biomass(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
 
   q_lls_length_comp(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
-
+  q_ts_biomass(year, area = "goa",
+               afsc_species = c(afsc_species2, afsc_species3), akfin = akfin)
   DBI::dbDisconnect(akfin)
 
   #establish afsc connection

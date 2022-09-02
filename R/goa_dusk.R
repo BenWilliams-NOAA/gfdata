@@ -19,7 +19,7 @@ goa_dusk <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = 
 
   # globals ----
   species = "DUSK"
-  area = "goa"
+  area = "GOA"
   afsc_species1 =  30150
   afsc_species2 = 30152
   norpac_species = 330
@@ -56,11 +56,11 @@ if(!is.null(off_yr)){
   # catch
   .c = .d = sql_read("fsh_catch.sql")
   .c = sql_filter(sql_precode = ">=", 2012, sql_code = .c, flag = "-- insert year")
-  .c = sql_filter(x = toupper(area), sql_code = .c, flag = "-- insert region")
+  .c = sql_filter(x = area, sql_code = .c, flag = "-- insert region")
   .c = sql_filter(x = species, sql_code = .c, flag = "-- insert species")
 
   .d = sql_filter(sql_precode = "<=", 2011, sql_code = .d, flag = "-- insert year")
-  .d = sql_filter(x = toupper(area), sql_code = .d, flag = "-- insert region")
+  .d = sql_filter(x = area, sql_code = .d, flag = "-- insert region")
   .d = sql_filter(sql_precode = "IN", x = c("PEL7", "PELS"), sql_code = .d, flag = "-- insert species")
 
   sql_run(akfin, .c) %>%

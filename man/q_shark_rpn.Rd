@@ -17,5 +17,5 @@ q_shark_rpn(year, save, akfin)
 IPHC FISS RPN and CPUE from AKFIN
 }
 \examples{
-\dontrun(q_sharl_rpn(year, save=FALSE))
+/dontrun(q_sharl_rpn(year, save=FALSE, akfin))
 }

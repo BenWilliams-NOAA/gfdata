@@ -9,7 +9,7 @@
 #' @export q_shark_rpn
 #'
 #' @examples
-#' \dontrun(q_sharl_rpn(year, save=FALSE, akfin))
+#' /dontrun(q_sharl_rpn(year, save=FALSE, akfin))
 q_shark_rpn <- function(year, save, akfin){
 
   files <- grep(paste0("shark_rpn"),

@@ -13,9 +13,13 @@
 #' @export
 #'
 #' @examples
-q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "slope", depth = NULL, stratum = NULL, akfin, save = TRUE){
-  if(area == "bs" & shelf_slope == "shelf"){
-    message("you are querying the Bering Sea slope, change shelf_slope = 'slope' to get slope results")
+q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "shelf", depth = NULL, stratum = NULL, akfin, save = TRUE){
+
+  area = toupper(area)
+  shelf_slope = toupper(shelf_slope)
+
+  if(area == "BS" & shelf_slope == "SHELF"){
+    message("you are querying the Bering Sea shelf, change shelf_slope = 'slope' to get slope results")
   }
 
   if(is.null(depth) & is.null(stratum)){
@@ -35,7 +39,7 @@ q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "slope
   }
 
   # FUTURE - can add BS by depth or strata switches
-  if(area=="bs"){
+  if(area=="BS"){
     files = grep("bs", files, value=TRUE)
     if(shelf_slope=="shelf"){
       file = grep("shelf", files, value=TRUE)
@@ -46,7 +50,7 @@ q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "slope
     }
   } else {
     file = grep("aigoa", files, value=TRUE)
-    id = area
+    id = tolower(area)
   }
 
   .bio = sql_read(file)
@@ -59,7 +63,7 @@ q_ts_biomass <- function (year, area = "goa", afsc_species, shelf_slope = "slope
                       sql_code = .bio, flag = "-- insert species")
   }
 
-  if(area != "bs"){
+  if(area!="BS"){
     .bio = sql_filter(x = area, sql_code = .bio, flag = "-- insert area")
   }
 

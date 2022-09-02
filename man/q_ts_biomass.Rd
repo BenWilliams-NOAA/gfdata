@@ -8,8 +8,8 @@ q_ts_biomass(
   year,
   area = "goa",
   afsc_species,
-  shelf_slope = "slope",
-  depth = TRUE,
+  shelf_slope = "shelf",
+  depth = NULL,
   stratum = NULL,
   akfin,
   save = TRUE

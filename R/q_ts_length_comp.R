@@ -13,6 +13,8 @@
 #'
 q_ts_length_comp <- function(year, area = "goa", afsc_species, afsc, save = TRUE){
 
+  area = tolower(area)
+
   files <- grep(paste0(area,"_ts_length"),
                 list.files(system.file("sql", package = "gfdata")), value=TRUE)
 

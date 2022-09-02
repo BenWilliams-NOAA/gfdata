@@ -30,15 +30,9 @@ goa_atf <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = N
     # catch
     q_fish_catch(year, fishery = "fsh", species = species, area = area, akfin = akfin)
     q_fish_obs(year, fishery = "fsh", norpac_species = norpac_species, area, akfin)
-
+    q_ts_biomass(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
     DBI::dbDisconnect(akfin)
 
-    afsc = DBI::dbConnect(odbc::odbc(), "afsc",
-                          UID = afsc_user, PWD = afsc_pwd)
-
-    q_ts_biomass(year, area = "goa", afsc_species = afsc_species, afsc = afsc)
-
-    DBI::dbDisconnect(afsc)
 
   } else{
     akfin = DBI::dbConnect(odbc::odbc(), "akfin",
@@ -49,14 +43,13 @@ goa_atf <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, off_yr = N
     q_fish_obs(year, fishery = "fsh", norpac_species = norpac_species, area, akfin)
     q_fish_age_comp(year, fishery = "fsh", norpac_species = norpac_species, area = area, akfin = akfin)
     q_fish_length_comp(year, fishery = "fsh", norpac_species = norpac_species, area = area, akfin = akfin)
-
+    q_ts_biomass(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
     DBI::dbDisconnect(akfin)
 
     #establish afsc connection ----
     afsc = DBI::dbConnect(odbc::odbc(), "afsc",
                           UID = afsc_user, PWD = afsc_pwd)
 
-    q_ts_biomass(year, area = "goa", afsc_species = afsc_species, afsc = afsc)
     q_ts_age_comp(year, area = "goa", afsc_species = afsc_species, afsc = afsc)
     q_ts_length_comp(year, area = "goa", afsc_species = afsc_species, afsc = afsc)
     q_ts_saa(year, area = "goa", afsc_species = afsc_species, afsc = afsc)

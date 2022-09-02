@@ -69,6 +69,9 @@ sablefish <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, whale = 
               row.names = FALSE)
   }
 
+  # goa ts biomass ----
+  q_ts_biomass(year, area = "goa", afsc_species = afsc_species, akfin = akfin)
+
   DBI::dbDisconnect(akfin)
 
   # lls rpw/rpn ----
@@ -94,8 +97,7 @@ sablefish <- function(year, akfin_user, akfin_pwd, afsc_user, afsc_pwd, whale = 
   #establish afsc connection ----
   afsc = DBI::dbConnect(odbc::odbc(), "afsc",
                         UID = afsc_user, PWD = afsc_pwd)
-  # goa ts biomass ----
-  q_ts_biomass(year, area = "goa", afsc_species = afsc_species, afsc = afsc)
+
 
   # ts length comp ----
   q_ts_length_comp(year, area = "goa", afsc_species = afsc_species, afsc = afsc)
