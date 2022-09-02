@@ -28,6 +28,9 @@
     <loc>https://benwilliams-noaa.github.io/gfdata/reference/accepted_model.html</loc>
   </url>
   <url>
+    <loc>https://benwilliams-noaa.github.io/gfdata/reference/bsai_flathead.html</loc>
+  </url>
+  <url>
     <loc>https://benwilliams-noaa.github.io/gfdata/reference/gfdata-package.html</loc>
   </url>
   <url>
@@ -91,6 +94,9 @@
     <loc>https://benwilliams-noaa.github.io/gfdata/reference/q_sabl_rpn.html</loc>
   </url>
   <url>
+    <loc>https://benwilliams-noaa.github.io/gfdata/reference/q_shark_rpn.html</loc>
+  </url>
+  <url>
     <loc>https://benwilliams-noaa.github.io/gfdata/reference/q_ts_age_comp.html</loc>
   </url>
   <url>
@@ -125,5 +131,8 @@
   </url>
   <url>
     <loc>https://benwilliams-noaa.github.io/gfdata/reference/setup.html</loc>
+  </url>
+  <url>
+    <loc>https://benwilliams-noaa.github.io/gfdata/reference/sharks.html</loc>
   </url>
 </urlset>
