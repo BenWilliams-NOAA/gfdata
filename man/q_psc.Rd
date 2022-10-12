@@ -4,7 +4,7 @@
 \alias{q_psc}
 \title{query prohibited species catch estimate}
 \usage{
-q_psc(year, trip_target, area, akfin, save = TRUE)
+q_psc(year, trip_target, area, server, save = TRUE)
 }
 \arguments{
 \item{year}{assessment year}
@@ -13,9 +13,9 @@ q_psc(year, trip_target, area, akfin, save = TRUE)
 
 \item{area}{goa or bsai}
 
-\item{akfin}{the database to query}
-
 \item{save}{save the file in designated folder}
+
+\item{akfin}{the database to query}
 }
 \description{
 prohibited species catch (PSC) estimates reported in tons for halibut and herring, counts for salmon, crabs and other fish. Note that you can combine trip target codes c("k", "x") and regions - though results will be lumped together

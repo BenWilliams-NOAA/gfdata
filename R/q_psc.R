@@ -18,7 +18,7 @@
 #'
 #' }
 #'
-q_psc <- function(year, trip_target, area, akfin, save = TRUE) {
+q_psc <- function(year, trip_target, area, server, save = TRUE) {
   area = toupper(area)
   trip_target = toupper(trip_target)
 
@@ -42,13 +42,13 @@ q_psc <- function(year, trip_target, area, akfin, save = TRUE) {
   }
 
   if(isTRUE(save)){
-      sql_run(akfin, psc) %>%
+      sql_run(server, psc) %>%
         dplyr::rename_all(tolower) %>%
         tidyr::pivot_wider(names_from = year, values_from = psc) %>%
         write.csv(here::here(year, "data", "output", "psc_catch.csv"),
                   row.names = FALSE)
   } else {
-    sql_run(akfin, psc)
+    sql_run(server, psc)
   }
 }
 
