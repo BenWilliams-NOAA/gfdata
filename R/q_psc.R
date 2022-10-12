@@ -8,13 +8,13 @@
 #'
 #' @return
 #' @export
-#' @description prohibited species catch (PSC) estimates reported in tons for halibut and herring and counts for salmon and crabs and other fish
+#' @description prohibited species catch (PSC) estimates reported in tons for halibut and herring, counts for salmon, crabs and other fish. Note that you can combine trip target codes c("k", "x") and regions - though results will be lumped together
 #' @examples
 #' \dontrun{
 #'
 #' akfin = DBI::dbConnect(odbc::odbc(), "akfin", UID = akfin_user, PWD = akfin_pwd)
 
-#' q_psc(year=2022, trip_target="k", area="goa", afkin, save=FALSE) %>%
+#' q_psc(year=2022, trip_target="k", area="goa", afkin, save=FALSE)
 #'
 #' }
 #'
