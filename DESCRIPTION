@@ -17,6 +17,7 @@ Imports:
     lifecycle,
     magrittr,
     odbc,
+    tidyr,
     vroom
 RoxygenNote: 7.2.1
 URL: https://benwilliams-noaa.github.io/gfdata
