@@ -1,9 +1,16 @@
 
+
+
+
 # gfdata
 
 <!-- badges: start -->
 ![gfdata](https://github.com/BenWilliams-NOAA/gfdata/actions/workflows/pkgdown.yaml/badge.svg)
+![Static Badge](https://img.shields.io/badge/Superceded-red)
+
 <!-- badges: end -->
+
+See [https://github.com/afsc-assessments/afscdata](afsc-assessments/afscdata)
 
 The goal of gfdata is to provide a one stop shop for setting up a folder structure and querying the AKFIN and AFSC databases to retrieve data used in fishery stock assessments.
 
